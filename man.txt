@@ -1,0 +1,9 @@
+// mac os
+
+cd ..
+javac -d ./dist/ -h header/ -sourcepath src src/CalculatorJNI.java
+gcc -I"$JAVA_HOME/include" -I"$JAVA_HOME/include/darwin" -I"header/" -dynamiclib -o libcalculator.dylib  src/CalculatorJNI.cc
+cd dist/
+java CalculatorJNI
+
+// java -Djava.library.path=./ CalculatorJNI
